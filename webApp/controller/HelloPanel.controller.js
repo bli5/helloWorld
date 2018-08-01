@@ -13,19 +13,7 @@ sap.ui.define([
          MessageToast.show(sMsg);
       },
       onOpenDialog : function () {
-      	var oView = this.getView();
-      	var oDialog = oView.byId("helloDialog");
-      	// crate dialog lazily
-      	if (!oDialog) {
-      		console.log(!oDialog);
-      		oDialog = sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.walkthrough.view.HelloDialog", this);
-      		oView.addDependent(oDialog);
-      		
-      	}
-      	oDialog.open();
-      },
-      onCloseDialog : function () {
-      	this.getView().byId("helloDialog").close();
+      	this.getOwnerComponent().openHelloDialog();
       }
    });
 });
