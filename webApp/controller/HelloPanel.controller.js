@@ -18,11 +18,14 @@ sap.ui.define([
       	// crate dialog lazily
       	if (!oDialog) {
       		console.log(!oDialog);
-      		oDialog = sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.walkthrough.view.HelloDialog");
+      		oDialog = sap.ui.xmlfragment(oView.getId(), "sap.ui.demo.walkthrough.view.HelloDialog", this);
       		oView.addDependent(oDialog);
       		
       	}
       	oDialog.open();
+      },
+      onCloseDialog : function () {
+      	this.getView().byId("helloDialog").close();
       }
    });
 });
